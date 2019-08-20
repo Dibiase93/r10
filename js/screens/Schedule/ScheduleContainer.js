@@ -1,33 +1,34 @@
-import gql from 'graphql-tag';
 import React, {Component} from 'react';
+import {View} from 'react-native';
+import Schedule from './Schedule';
+import gql from 'graphql-tag';
 import {Query} from 'react-apollo';
-import About from './About';
 import {ActivityIndicator, Text} from 'react-native';
 
-const ALL_CONDUCTS = gql`
+const ALL_SESSIONS = gql`
   {
-    allConducts {
+    allSessions {
       id
-      description
       title
+      startTime
+      location
     }
   }
 `;
-class AboutContainer extends Component {
+
+export default class SchduleContainer extends Component {
   static navigationOptions = {
-    title: 'About',
+    title: 'Schedule',
   };
   render() {
     return (
-      <Query query={ALL_CONDUCTS}>
+      <Query query={ALL_SESSIONS}>
         {({loading, error, data}) => {
           if (loading) return <ActivityIndicator />;
           if (error) return <Text>Error...</Text>;
-          return <About allConducts={data} />;
+          return <Schedule allSessions={data.allSessions} />;
         }}
       </Query>
     );
   }
 }
-
-export default AboutContainer;

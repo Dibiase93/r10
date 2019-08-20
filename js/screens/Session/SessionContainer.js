@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {View} from 'react-native';
-import Faves from './Faves';
+import Session from './Session';
 
-export default class FavesContainer extends Component {
+export default class SessionContainer extends Component {
   render() {
     return (
       <View>
-        <Faves />
+        <Session />
       </View>
     );
   }

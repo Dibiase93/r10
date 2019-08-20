@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {View} from 'react-native';
-import Faves from './Faves';
+import MapPage from './Map';
 
-export default class FavesContainer extends Component {
+export default class MapContainer extends Component {
   render() {
     return (
       <View>
-        <Faves />
+        <MapPage />
       </View>
     );
   }

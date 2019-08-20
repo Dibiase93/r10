@@ -11,23 +11,15 @@ import client from '../js/config/api';
 
 import React, {Fragment} from 'react';
 import AboutContainer from './screens/About';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import RootStackNavigator from './navigation/RootStackNavigator';
+import {SafeAreaView, StatusBar} from 'react-native';
 
 const App = () => {
   return (
     <ApolloProvider client={client}>
       <Fragment>
         <StatusBar barStyle="dark-content" />
-        <SafeAreaView>
-          <AboutContainer />
-        </SafeAreaView>
+        <RootStackNavigator />
       </Fragment>
     </ApolloProvider>
   );
