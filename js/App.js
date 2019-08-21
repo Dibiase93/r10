@@ -8,19 +8,16 @@
 
 import {ApolloProvider} from '@apollo/react-hooks';
 import client from '../js/config/api';
-
 import React, {Fragment} from 'react';
-import AboutContainer from './screens/About';
 import RootStackNavigator from './navigation/RootStackNavigator';
-import {SafeAreaView, StatusBar} from 'react-native';
+import {FavesProvider} from './context/FavesContext';
 
 const App = () => {
   return (
     <ApolloProvider client={client}>
-      <Fragment>
-        <StatusBar barStyle="dark-content" />
+      <FavesProvider>
         <RootStackNavigator />
-      </Fragment>
+      </FavesProvider>
     </ApolloProvider>
   );
 };

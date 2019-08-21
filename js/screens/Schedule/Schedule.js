@@ -5,8 +5,6 @@ import styles from './styles';
 import {withNavigation} from 'react-navigation';
 
 const Schedule = ({allSessions, navigation}) => {
-  //   console.log(allSessions);
-
   const formattedData = formatSessionData(allSessions);
 
   return (
@@ -18,7 +16,7 @@ const Schedule = ({allSessions, navigation}) => {
             <TouchableHighlight
               onPress={() => {
                 navigation.navigate('Session', {
-                  itemId: item.id,
+                  item
                 });
               }}>
               <View>
@@ -28,7 +26,7 @@ const Schedule = ({allSessions, navigation}) => {
             </TouchableHighlight>
           )}
           renderSectionHeader={({section: {title}}) => (
-            <Text style={styles.sessionHeader}>{title}This is title</Text>
+            <Text style={styles.sessionHeader}>{title}</Text>
           )}
           keyExtractor={(item, index) => item.id + ''}
         />

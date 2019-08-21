@@ -66,18 +66,18 @@ const ScheduleStack = createStackNavigator(
   },
 );
 
-const SessionStack = createStackNavigator(
-  {
-    Session: {
-      screen: SessionScreen,
-    },
-  },
-  {
-    defaultNavigationOptions: ({navigation}) => ({
-      ...sharedNavigationOptions(navigation),
-    }),
-  },
-);
+// const SessionStack = createStackNavigator(
+//   {
+//     Session: {
+//       screen: SessionScreen,
+//     },
+//   },
+//   {
+//     defaultNavigationOptions: ({navigation}) => ({
+//       ...sharedNavigationOptions(navigation),
+//     }),
+//   },
+// );
 
 export default createBottomTabNavigator(
   {
