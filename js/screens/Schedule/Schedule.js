@@ -16,7 +16,7 @@ const Schedule = ({allSessions, navigation}) => {
             <TouchableHighlight
               onPress={() => {
                 navigation.navigate('Session', {
-                  item
+                  item,
                 });
               }}>
               <View>

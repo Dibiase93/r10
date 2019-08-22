@@ -30,8 +30,14 @@ class SessionContainer extends Component {
 
           return (
             <FavesContext.Consumer>
-              {({faveIds}) => (
-                <Session item={item} faveIds={faveIds} speaker={data.Speaker} />
+              {({faveIds, addFaveSession, removeFaveSession}) => (
+                <Session
+                  item={item}
+                  faveIds={faveIds}
+                  addFaveSession={addFaveSession}
+                  removeFaveSession={removeFaveSession}
+                  speaker={data.Speaker}
+                />
               )}
             </FavesContext.Consumer>
           );
