@@ -3,13 +3,16 @@ import {Text, View, SectionList, TouchableHighlight} from 'react-native';
 import {formatSessionData} from '../../lib/helper';
 import styles from './styles';
 import {withNavigation} from 'react-navigation';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-const Schedule = ({allSessions, navigation}) => {
+const Schedule = ({allSessions, navigation, faveIds}) => {
   const formattedData = formatSessionData(allSessions);
+
+  const heartIcon = <Icon name="ios-heart" size={25} color={'red'} />;
 
   return (
     allSessions && (
-      <View style={styles.sessionContainer}>
+      <View>
         <SectionList
           sections={formattedData}
           renderItem={({item}) => (
@@ -20,8 +23,9 @@ const Schedule = ({allSessions, navigation}) => {
                 });
               }}>
               <View>
-                <Text>{item.title}</Text>
-                <Text>{item.location}</Text>
+                <Text style={styles.content}>{item.title}</Text>
+                <Text style={styles.content}>{item.location}</Text>
+                {faveIds.includes(item.id) ? heartIcon : null}
               </View>
             </TouchableHighlight>
           )}

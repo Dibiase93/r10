@@ -66,19 +66,6 @@ const ScheduleStack = createStackNavigator(
   },
 );
 
-// const SessionStack = createStackNavigator(
-//   {
-//     Session: {
-//       screen: SessionScreen,
-//     },
-//   },
-//   {
-//     defaultNavigationOptions: ({navigation}) => ({
-//       ...sharedNavigationOptions(navigation),
-//     }),
-//   },
-// );
-
 export default createBottomTabNavigator(
   {
     Schedule: ScheduleStack,
@@ -111,7 +98,14 @@ export default createBottomTabNavigator(
       inactiveTintColor: '#999999',
       labelStyle: {
         fontSize: 10,
-        fontFamily: 'Montserrat',
+        ...Platform.select({
+          ios: {
+            fontFamily: 'Montserrat',
+          },
+          android: {
+            fontFamily: 'Montserrat-Regular',
+          },
+        }),
       },
       style: {
         backgroundColor: 'black',

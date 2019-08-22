@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, View, Image} from 'react-native';
 import styles from './styles';
 import {Button} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Session = ({
   item,
@@ -10,11 +11,13 @@ const Session = ({
   addFaveSession,
   removeFaveSession,
 }) => {
+  const heartIcon = <Icon name="ios-heart" size={25} color={'red'} />;
   console.log(speaker);
   console.log(faveIds);
   return (
     <View>
       <Text>{item.location}</Text>
+      {faveIds.includes(item.id) ? heartIcon : null}
       <Text>{item.title}</Text>
       <Text>{item.startTime}</Text>
       <Text>{speaker.bio}</Text>

@@ -1,3 +1,5 @@
+import styles from './config/styles';
+
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -11,6 +13,7 @@ import client from '../js/config/api';
 import React, {Fragment} from 'react';
 import RootStackNavigator from './navigation/RootStackNavigator';
 import {FavesProvider} from './context/FavesContext';
+import {classes} from 'istanbul-lib-coverage';
 
 const App = () => {
   return (
