@@ -19,15 +19,13 @@ class ConductItem extends Component {
   //   }
 
   spin = () => {
-    if (this.state.isDescVisible === false) {
-      this.setState({
-        isDescVisible: true,
-      });
-    } else if (this.state.isDescVisible === true) {
-      this.setState({
-        isDescVisible: false,
-      });
-    }
+    this.state.isDescVisible === false
+      ? this.setState({
+          isDescVisible: true,
+        })
+      : this.setState({
+          isDescVisible: false,
+        });
   };
 
   render() {
