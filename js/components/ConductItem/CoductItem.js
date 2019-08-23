@@ -14,10 +14,6 @@ class ConductItem extends Component {
     };
   }
 
-  //   componentDidMount() {
-  //     this.spin();
-  //   }
-
   spin = () => {
     this.state.isDescVisible === false
       ? this.setState({
@@ -34,7 +30,13 @@ class ConductItem extends Component {
       <View>
         <TouchableOpacity onPress={this.spin}>
           <View>
-            <Icon name="ios-add" />
+            {!this.state.isDescVisible ? (
+              <Icon name="ios-add" />
+            ) : (
+              <Icon name="ios-remove" />
+            )}
+            {/* <Icon name="ios-add" />
+            <Icon name="ios-remove" /> */}
             <Text>{conduct.title}</Text>
           </View>
         </TouchableOpacity>
