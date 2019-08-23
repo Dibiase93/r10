@@ -28,12 +28,19 @@ export default class FavesContainer extends Component {
     return (
       <Query query={ALL_SESSIONS}>
         {({loading, error, data}) => {
+          console.log(data.allSessions);
           if (loading) return <ActivityIndicator />;
           if (error) return <Text>Error...</Text>;
+
           return (
             <FavesContext.Consumer>
               {({faveIds}) => (
-                <Faves allSessions={data.allSessions} faveIds={faveIds} />
+                <Faves
+                  allSessions={data.allSessions.filter(session =>
+                    faveIds.includes(session.id),
+                  )}
+                  faveIds={faveIds}
+                />
               )}
             </FavesContext.Consumer>
           );

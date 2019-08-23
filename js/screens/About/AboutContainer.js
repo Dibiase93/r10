@@ -13,6 +13,7 @@ const ALL_CONDUCTS = gql`
     }
   }
 `;
+
 class AboutContainer extends Component {
   static navigationOptions = {
     title: 'About',
@@ -23,7 +24,7 @@ class AboutContainer extends Component {
         {({loading, error, data}) => {
           if (loading) return <ActivityIndicator />;
           if (error) return <Text>Error...</Text>;
-          return <About allConducts={data} />;
+          return <About allConducts={data.allConducts} />;
         }}
       </Query>
     );

@@ -20,8 +20,12 @@ const SPEAKER = gql`
 `;
 
 class SessionContainer extends Component {
+  static navigationOptions = {
+    title: 'Session',
+  };
   render() {
     const item = this.props.navigation.getParam('item', {});
+
     return (
       <Query query={SPEAKER} variables={{id: item.speaker.id}}>
         {({loading, error, data}) => {

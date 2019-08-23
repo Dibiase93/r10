@@ -1,9 +1,10 @@
-import React from 'react';
-import {View, Text, Image, FlatList} from 'react-native';
+import React, {Component} from 'react';
+import {View, Text, TouchableHighlight} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import ConductItem from '../../components/ConductItem';
 
 const About = ({allConducts}) => {
-  console.log(allConducts);
-  return <Text>This is the about page</Text>;
+  return allConducts.map(conduct => <ConductItem conduct={conduct} />);
 };
 
 export default About;

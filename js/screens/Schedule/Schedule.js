@@ -1,9 +1,10 @@
 import React from 'react';
-import {Text, View, SectionList, TouchableHighlight} from 'react-native';
+import {Text, View, SectionList} from 'react-native';
 import {formatSessionData} from '../../lib/helper';
 import styles from './styles';
 import {withNavigation} from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
+import SessionItem from '../../components/SessionItem';
 
 const Schedule = ({allSessions, navigation, faveIds}) => {
   const formattedData = formatSessionData(allSessions);
@@ -16,18 +17,19 @@ const Schedule = ({allSessions, navigation, faveIds}) => {
         <SectionList
           sections={formattedData}
           renderItem={({item}) => (
-            <TouchableHighlight
-              onPress={() => {
-                navigation.navigate('Session', {
-                  item,
-                });
-              }}>
-              <View>
-                <Text style={styles.content}>{item.title}</Text>
-                <Text style={styles.content}>{item.location}</Text>
-                {faveIds.includes(item.id) ? heartIcon : null}
-              </View>
-            </TouchableHighlight>
+            <SessionItem item={item} />
+            // <TouchableHighlight
+            //   onPress={() => {
+            //     navigation.navigate('Session', {
+            //       item,
+            //     });
+            //   }}>
+            //   <View>
+            //     <Text style={styles.content}>{item.title}</Text>
+            //     <Text style={styles.content}>{item.location}</Text>
+            //     {faveIds.includes(item.id) ? heartIcon : null}
+            //   </View>
+            // </TouchableHighlight>
           )}
           renderSectionHeader={({section: {title}}) => (
             <Text style={styles.sessionHeader}>{title}</Text>
