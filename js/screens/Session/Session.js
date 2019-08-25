@@ -1,8 +1,9 @@
 import React from 'react';
-import {Text, View, Image} from 'react-native';
+import {Text, View, Image, TouchableHighlight} from 'react-native';
 import styles from './styles';
 import {Button} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {withNavigation} from 'react-navigation';
 
 const Session = ({
   item,
@@ -10,6 +11,7 @@ const Session = ({
   faveIds,
   addFaveSession,
   removeFaveSession,
+  navigation,
 }) => {
   const heartIcon = <Icon name="ios-heart" size={25} color={'red'} />;
   console.log(speaker);
@@ -22,10 +24,19 @@ const Session = ({
       <Text>{item.startTime}</Text>
       <Text>{speaker.bio}</Text>
       <Text>Presented By:</Text>
-      <View>
-        <Image style={styles.image} source={{uri: speaker.image}} />
-        <Text>{speaker.name}</Text>
-      </View>
+
+      <TouchableHighlight
+        onPress={() => {
+          navigation.navigate('Speaker', {
+            speaker,
+          });
+        }}>
+        <View>
+          <Image style={styles.image} source={{uri: speaker.image}} />
+          <Text>{speaker.name}</Text>
+        </View>
+      </TouchableHighlight>
+
       {!faveIds.includes(item.id) ? (
         <Button onPress={() => addFaveSession(item.id)} title="Add To Faves" />
       ) : (
@@ -38,4 +49,4 @@ const Session = ({
   );
 };
 
-export default Session;
+export default withNavigation(Session);
