@@ -7,6 +7,9 @@ const styles = StyleSheet.create({
   description: {
     display: 'flex',
   },
+  iconContainer: {
+    flexDirection: 'row',
+  },
 });
 
 export default styles;
