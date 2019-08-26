@@ -44,18 +44,29 @@ class ConductItem extends Component {
 
     let transformStyle = {transform: [{rotate: spin}]};
     return (
-      <View>
+      <View style={styles.conductItemContainer}>
         <TouchableWithoutFeedback
-          style={styles.iconContainer}
+          style={styles.iconTitleContainer}
           onPress={this.spin}>
-          <Animated.View style={transformStyle}>
-            {!this.state.isDescVisible ? (
-              <Icon name="ios-add" size={30} />
-            ) : (
-              <Icon name="ios-remove" size={30} />
-            )}
-          </Animated.View>
-          <Text>{conduct.title}</Text>
+          {!this.state.isDescVisible ? (
+            <Animated.View style={transformStyle}>
+              <Icon
+                name="ios-add"
+                size={20}
+                color={'#9963ea'}
+                allowFontScaling={true}
+              />
+            </Animated.View>
+          ) : (
+            <Icon
+              name="ios-remove"
+              size={20}
+              color={'#9963ea'}
+              allowFontScaling={true}
+            />
+          )}
+
+          <Text style={styles.conductTitle}>{conduct.title}</Text>
         </TouchableWithoutFeedback>
         <Text
           style={
