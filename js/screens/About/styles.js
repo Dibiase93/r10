@@ -14,15 +14,40 @@ const styles = StyleSheet.create({
   },
   copyRight: {
     paddingTop: 30,
+    paddingBottom: 30,
     fontSize: 18,
     fontFamily: 'Montserrat-light',
   },
-  copyRightContainer: {
+  aboutContent: {
+    fontSize: 18,
+    fontFamily: 'Montserrat-light',
+    lineHeight: 24,
+    marginTop: 10,
+    marginBottom: 10,
+    marginLeft: 5,
+  },
+  borderTopContainer: {
     borderTopColor: '#e6e6e6',
     borderTopWidth: 1,
     marginRight: 10,
     marginLeft: 5,
     marginTop: 15,
+  },
+  borderTopEntryContainer: {
+    borderTopColor: '#e6e6e6',
+    borderTopWidth: 1,
+    marginRight: 10,
+    marginTop: 15,
+  },
+  image: {
+    marginTop: 30,
+    marginBottom: 15,
+    width: '65%',
+    height: 60,
+    resizeMode: 'stretch',
+  },
+  imageContainer: {
+    alignItems: 'center',
   },
 });
 

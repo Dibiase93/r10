@@ -6,6 +6,10 @@ const styles = StyleSheet.create({
   },
   description: {
     display: 'flex',
+    fontFamily: 'Montserrat-light',
+    fontSize: 18,
+    marginTop: 10,
+    lineHeight: 24,
   },
   iconContainer: {
     flexDirection: 'row',
