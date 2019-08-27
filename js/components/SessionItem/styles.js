@@ -37,9 +37,6 @@ const styles = StyleSheet.create({
       },
     }),
   },
-  button: {
-    backgroundColor: '#e6e6e6',
-  },
   sessionContainer: {
     padding: 10,
     paddingLeft: 20,

@@ -1,9 +1,10 @@
 import React from 'react';
-import {Text, View, Image, TouchableHighlight} from 'react-native';
+import {Text, View, Image, TouchableHighlight, ScrollView} from 'react-native';
 import styles from './styles';
 import {Button} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {withNavigation} from 'react-navigation';
+import moment from 'moment';
 
 const Session = ({
   item,
@@ -13,17 +14,21 @@ const Session = ({
   removeFaveSession,
   navigation,
 }) => {
-  const heartIcon = <Icon name="ios-heart" size={25} color={'red'} />;
+  const heartIcon = <Icon name="ios-heart" size={18} color={'#cf392a'} />;
   console.log(speaker);
   console.log(faveIds);
   return (
-    <View>
-      <Text>{item.location}</Text>
-      {faveIds.includes(item.id) ? heartIcon : null}
-      <Text>{item.title}</Text>
-      <Text>{item.startTime}</Text>
-      <Text>{speaker.bio}</Text>
-      <Text>Presented By:</Text>
+    <ScrollView>
+      <View style={styles.locationContainer}>
+        <Text style={styles.location}>{item.location}</Text>
+        {faveIds.includes(item.id) ? heartIcon : null}
+      </View>
+      <Text style={styles.title}>{item.title}</Text>
+      <Text style={styles.time}>
+        {moment(`${item.startTime}`).format('h:mm A')}
+      </Text>
+      <Text style={styles.bio}>{speaker.bio}</Text>
+      <Text style={styles.presented}>Presented By:</Text>
 
       <TouchableHighlight
         onPress={() => {
@@ -31,9 +36,9 @@ const Session = ({
             speaker,
           });
         }}>
-        <View>
+        <View style={styles.imageContainer}>
           <Image style={styles.image} source={{uri: speaker.image}} />
-          <Text>{speaker.name}</Text>
+          <Text style={styles.speaker}>{speaker.name}</Text>
         </View>
       </TouchableHighlight>
 
@@ -45,7 +50,7 @@ const Session = ({
           title="Remove from Faves"
         />
       )}
-    </View>
+    </ScrollView>
   );
 };
 
