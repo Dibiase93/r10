@@ -1,18 +1,11 @@
 import React from 'react';
-import {
-  Text,
-  View,
-  Image,
-  TouchableHighlight,
-  ScrollView,
-  StyleSheet,
-} from 'react-native';
+import {Text, View, Image, TouchableHighlight, ScrollView} from 'react-native';
 import styles from './styles';
-import {Button} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {withNavigation} from 'react-navigation';
 import moment from 'moment';
 import LinearGradient from 'react-native-linear-gradient';
+import PropTypes from 'prop-types';
 
 const Session = ({
   item,
@@ -80,6 +73,28 @@ const Session = ({
       )}
     </ScrollView>
   );
+};
+
+Session.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  item: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    speaker: PropTypes.object.isRequired,
+    startTime: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }),
+  speaker: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    bio: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+  }),
+  faveIds: PropTypes.array.isRequired,
+  addFaveSession: PropTypes.func.isRequired,
+  removeFaveSession: PropTypes.func.isRequired,
 };
 
 export default withNavigation(Session);

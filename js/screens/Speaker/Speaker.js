@@ -9,10 +9,12 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './styles';
-import {navigation, withNavigation} from 'react-navigation';
+import {withNavigation} from 'react-navigation';
 import LinearGradient from 'react-native-linear-gradient';
+import PropTypes from 'prop-types';
 
 const Speaker = ({speaker, navigation}) => {
+  console.log(speaker);
   return (
     <View style={styles.speakerPageBg}>
       <View style={styles.headerContainer}>
@@ -46,6 +48,17 @@ const Speaker = ({speaker, navigation}) => {
       </ScrollView>
     </View>
   );
+};
+
+Speaker.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  speaker: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    bio: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+  }),
 };
 
 export default withNavigation(Speaker);

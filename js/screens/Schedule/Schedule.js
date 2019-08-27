@@ -5,6 +5,7 @@ import styles from './styles';
 import {withNavigation} from 'react-navigation';
 import moment from 'moment';
 import SessionItem from '../../components/SessionItem';
+import PropTypes from 'prop-types';
 
 const Schedule = ({allSessions}) => {
   const formattedData = formatSessionData(allSessions);
@@ -24,6 +25,9 @@ const Schedule = ({allSessions}) => {
       </View>
     )
   );
+};
+Schedule.propTypes = {
+  allSessions: PropTypes.array.isRequired,
 };
 
 export default withNavigation(Schedule);

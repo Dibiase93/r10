@@ -11,10 +11,12 @@
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.0.1",
+    "@react-native-community/async-storage": "^1.6.1",
     "apollo-boost": "^0.4.4",
     "graphql": "^14.4.2",
     "install": "^0.13.0",
     "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
     "react": "16.8.6",
     "react-apollo": "^3.0.1",
     "react-native": "0.60.5",

@@ -1,12 +1,9 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {View, Text, Animated, Easing} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './styles';
-import {
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-} from 'react-native-gesture-handler';
+import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
+import PropTypes from 'prop-types';
 
 class ConductItem extends Component {
   constructor(props) {
@@ -80,5 +77,13 @@ class ConductItem extends Component {
     );
   }
 }
+
+ConductItem.propTypes = {
+  conduct: PropTypes.shape({
+    description: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }),
+};
 
 export default ConductItem;

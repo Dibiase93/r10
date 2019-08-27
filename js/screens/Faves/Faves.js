@@ -5,8 +5,10 @@ import styles from './styles';
 import {withNavigation} from 'react-navigation';
 import SessionItem from '../../components/SessionItem';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
-const Faves = ({allSessions, navigation, faveIds}) => {
+const Faves = ({allSessions, faveIds}) => {
+  console.log(allSessions);
   const formattedData = formatSessionData(allSessions);
 
   return (
@@ -31,4 +33,8 @@ const Faves = ({allSessions, navigation, faveIds}) => {
   );
 };
 
+Faves.propTypes = {
+  faveIds: PropTypes.array.isRequired,
+  allSessions: PropTypes.array.isRequired,
+};
 export default withNavigation(Faves);

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, Image, ScrollView} from 'react-native';
 import ConductItem from '../../components/ConductItem';
 import styles from './styles';
+import PropTypes from 'prop-types';
 
 const About = ({allConducts}) => {
   return (
@@ -25,7 +26,7 @@ const About = ({allConducts}) => {
       </Text>
       <Text style={styles.aboutTitle}>Code Of Conduct</Text>
       {allConducts.map(conduct => (
-        <View style={styles.content}>
+        <View key={conduct.id} style={styles.content}>
           <ConductItem conduct={conduct} />
         </View>
       ))}
@@ -34,6 +35,9 @@ const About = ({allConducts}) => {
       </View>
     </ScrollView>
   );
+};
+About.propTypes = {
+  allConducts: PropTypes.array.isRequired,
 };
 
 export default About;
