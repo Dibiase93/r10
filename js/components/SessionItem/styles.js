@@ -20,21 +20,25 @@ const styles = StyleSheet.create({
   locationContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     paddingRight: 20,
     paddingBottom: 10,
     paddingTop: 5,
   },
   location: {
-    fontSize: 18,
+    fontSize: 16,
     ...Platform.select({
       ios: {
-        fontFamily: 'Montserrat-light',
+        fontFamily: 'Montserrat-regular',
         color: '#999999',
       },
       android: {
         fontFamily: 'Montserrat-Regular',
       },
     }),
+  },
+  button: {
+    backgroundColor: '#e6e6e6',
   },
   sessionContainer: {
     padding: 10,

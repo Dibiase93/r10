@@ -6,13 +6,15 @@ import {withNavigation} from 'react-navigation';
 import FavesContext from '../../context/FavesContext';
 
 const SessionItem = ({item, navigation}) => {
-  const heartIcon = <Icon name="ios-heart" size={18} color={'red'} />;
+  const heartIcon = <Icon name="ios-heart" size={18} color={'#cf392a'} />;
 
   return (
     <View style={styles.sectionContainer}>
       <FavesContext.Consumer>
         {({faveIds}) => (
           <TouchableHighlight
+            activeOpacity={0.5}
+            underlayColor={'#e6e6e6'}
             onPress={() => {
               navigation.navigate('Session', {
                 item,

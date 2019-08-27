@@ -76,7 +76,7 @@ export default createBottomTabNavigator(
 
   {
     defaultNavigationOptions: ({navigation}) => ({
-      tabBarIcon: ({focused, horizontal, tintColor}) => {
+      tabBarIcon: ({tintColor}) => {
         const {routeName} = navigation.state;
         let IconComponent = Ionicons;
         let iconName;
@@ -108,6 +108,7 @@ export default createBottomTabNavigator(
         }),
       },
       style: {
+        paddingTop: 10,
         backgroundColor: 'black',
       },
     },
