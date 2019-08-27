@@ -22,7 +22,7 @@ const Speaker = ({speaker, navigation}) => {
           }}
           name="ios-close"
           color="white"
-          size={40}
+          size={45}
           style={styles.speakerIcon}
         />
         <Text style={styles.speakerHeader}>About The Speaker</Text>

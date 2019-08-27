@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     width: 75,
     borderRadius: 50,
   },
+
   imageContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -80,10 +81,11 @@ const styles = StyleSheet.create({
     }),
   },
 
-  bio: {
-    fontSize: 18,
-    padding: 20,
-    lineHeight: 27,
+  description: {
+    fontSize: 22,
+    padding: 15,
+    marginTop: 10,
+    lineHeight: 33,
     ...Platform.select({
       ios: {
         fontFamily: 'Montserrat-Light',
@@ -96,6 +98,7 @@ const styles = StyleSheet.create({
   presented: {
     color: '#999999',
     fontSize: 18,
+    marginTop: 30,
     paddingLeft: 20,
     ...Platform.select({
       ios: {
@@ -130,8 +133,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     marginLeft: 'auto',
     marginRight: 'auto',
-    marginTop: 20,
-    marginBottom: 10,
+    marginTop: 30,
     width: '65%',
   },
 });

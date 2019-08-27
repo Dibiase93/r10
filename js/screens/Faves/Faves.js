@@ -3,8 +3,8 @@ import {Text, View, SectionList, TouchableHighlight} from 'react-native';
 import {formatSessionData} from '../../lib/helper';
 import styles from './styles';
 import {withNavigation} from 'react-navigation';
-import Icon from 'react-native-vector-icons/Ionicons';
 import SessionItem from '../../components/SessionItem';
+import moment from 'moment';
 
 const Faves = ({allSessions, navigation, faveIds}) => {
   const formattedData = formatSessionData(allSessions);
@@ -19,7 +19,9 @@ const Faves = ({allSessions, navigation, faveIds}) => {
             sections={formattedData}
             renderItem={({item}) => <SessionItem item={item} />}
             renderSectionHeader={({section: {title}}) => (
-              <Text style={styles.sessionHeader}>{title}</Text>
+              <Text style={styles.sessionHeader}>
+                {moment(`${title}`).format('h:mm A')}
+              </Text>
             )}
             keyExtractor={(item, index) => item.id + ''}
           />

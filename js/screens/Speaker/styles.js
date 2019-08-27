@@ -15,11 +15,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     marginLeft: 18,
-    top: 22,
+    top: 18,
   },
 
   speakerPageBg: {
-    marginTop: 50,
     height: '100%',
     width: '100%',
     backgroundColor: 'black',
@@ -33,10 +32,10 @@ const styles = StyleSheet.create({
   },
   speakerHeader: {
     color: 'white',
-    fontSize: 18,
+    fontSize: 20,
     ...Platform.select({
       ios: {
-        fontFamily: 'Montserrat',
+        fontFamily: 'Montserrat-Regular',
       },
       android: {
         fontFamily: 'Montserrat-Regular',
@@ -44,6 +43,7 @@ const styles = StyleSheet.create({
     }),
   },
   headerContainer: {
+    marginTop: 30,
     position: 'relative',
     flexDirection: 'row',
     alignItems: 'center',
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     ...Platform.select({
       ios: {
-        fontFamily: 'Montserrat',
+        fontFamily: 'Montserrat-Regular',
       },
       android: {
         fontFamily: 'Montserrat-Regular',

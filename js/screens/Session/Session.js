@@ -35,7 +35,7 @@ const Session = ({
         {moment(`${item.startTime}`).format('h:mm A')}
       </Text>
 
-      <Text style={styles.bio}>{item.description}</Text>
+      <Text style={styles.description}>{item.description}</Text>
       <Text style={styles.presented}>Presented By:</Text>
       {speaker ? (
         <TouchableHighlight
