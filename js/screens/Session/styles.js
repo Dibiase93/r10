@@ -106,6 +106,34 @@ const styles = StyleSheet.create({
       },
     }),
   },
+  button: {
+    alignItems: 'center',
+    padding: 15,
+    borderRadius: 50,
+    width: '100%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 18,
+    ...Platform.select({
+      ios: {
+        fontFamily: 'Montserrat',
+      },
+      android: {
+        fontFamily: 'Montserrat-Regular',
+      },
+    }),
+  },
+  linearBg: {
+    borderRadius: 50,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: 20,
+    marginBottom: 10,
+    width: '65%',
+  },
 });
 
 export default styles;

@@ -77,7 +77,7 @@ export default createDrawerNavigator(
 
   {
     defaultNavigationOptions: ({navigation}) => ({
-      drawerIcon: ({focused, horizontal, tintColor}) => {
+      drawerIcon: ({tintColor}) => {
         const {routeName} = navigation.state;
         let IconComponent = Ionicons;
         let iconName;

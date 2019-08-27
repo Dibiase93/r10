@@ -1,10 +1,18 @@
 import React from 'react';
-import {Text, View, Image, TouchableHighlight, ScrollView} from 'react-native';
+import {
+  Text,
+  View,
+  Image,
+  TouchableHighlight,
+  ScrollView,
+  StyleSheet,
+} from 'react-native';
 import styles from './styles';
 import {Button} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {withNavigation} from 'react-navigation';
 import moment from 'moment';
+import LinearGradient from 'react-native-linear-gradient';
 
 const Session = ({
   item,
@@ -43,12 +51,29 @@ const Session = ({
       </TouchableHighlight>
 
       {!faveIds.includes(item.id) ? (
-        <Button onPress={() => addFaveSession(item.id)} title="Add To Faves" />
+        <LinearGradient
+          colors={['#9963ea', '#8797D6']}
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 0.5}}
+          style={styles.linearBg}>
+          <TouchableHighlight
+            onPress={() => addFaveSession(item.id)}
+            style={styles.button}>
+            <Text style={styles.buttonText}>Add to Faves</Text>
+          </TouchableHighlight>
+        </LinearGradient>
       ) : (
-        <Button
-          onPress={() => removeFaveSession(item.id)}
-          title="Remove from Faves"
-        />
+        <LinearGradient
+          colors={['#9963ea', '#8797D6']}
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 0.5}}
+          style={styles.linearBg}>
+          <TouchableHighlight
+            onPress={() => removeFaveSession(item.id)}
+            style={styles.button}>
+            <Text style={styles.buttonText}>Remove from Faves</Text>
+          </TouchableHighlight>
+        </LinearGradient>
       )}
     </ScrollView>
   );
