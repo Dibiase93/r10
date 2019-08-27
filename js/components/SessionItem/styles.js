@@ -2,7 +2,9 @@ import {StyleSheet, Platform} from 'react-native';
 
 const styles = StyleSheet.create({
   content: {
-    fontSize: 16,
+    fontSize: 18,
+    paddingTop: 5,
+    paddingBottom: 5,
     ...Platform.select({
       ios: {
         fontFamily: 'Montserrat',
@@ -12,8 +14,35 @@ const styles = StyleSheet.create({
       },
     }),
   },
+  sectionContainer: {
+    paddingTop: 5,
+  },
+  locationContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingRight: 20,
+    paddingBottom: 10,
+    paddingTop: 5,
+  },
+  location: {
+    fontSize: 18,
+    ...Platform.select({
+      ios: {
+        fontFamily: 'Montserrat-light',
+        color: '#999999',
+      },
+      android: {
+        fontFamily: 'Montserrat-Regular',
+      },
+    }),
+  },
+  sessionContainer: {
+    padding: 10,
+    paddingLeft: 20,
+    borderBottomColor: '#e6e6e6',
+    borderBottomWidth: 1,
+  },
 
-  // sessionContainer: {},
   sessionHeader: {
     fontSize: 20,
     fontWeight: 'bold',

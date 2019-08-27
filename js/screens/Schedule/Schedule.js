@@ -3,36 +3,21 @@ import {Text, View, SectionList} from 'react-native';
 import {formatSessionData} from '../../lib/helper';
 import styles from './styles';
 import {withNavigation} from 'react-navigation';
-import Icon from 'react-native-vector-icons/Ionicons';
+import moment from 'moment';
 import SessionItem from '../../components/SessionItem';
 
-const Schedule = ({allSessions, navigation, faveIds}) => {
+const Schedule = ({allSessions}) => {
   const formattedData = formatSessionData(allSessions);
-
-  const heartIcon = <Icon name="ios-heart" size={25} color={'red'} />;
-
   return (
     allSessions && (
-      <View>
+      <View style={styles.scheduleContainer}>
         <SectionList
           sections={formattedData}
-          renderItem={({item}) => (
-            <SessionItem item={item} />
-            // <TouchableHighlight
-            //   onPress={() => {
-            //     navigation.navigate('Session', {
-            //       item,
-            //     });
-            //   }}>
-            //   <View>
-            //     <Text style={styles.content}>{item.title}</Text>
-            //     <Text style={styles.content}>{item.location}</Text>
-            //     {faveIds.includes(item.id) ? heartIcon : null}
-            //   </View>
-            // </TouchableHighlight>
-          )}
+          renderItem={({item}) => <SessionItem item={item} />}
           renderSectionHeader={({section: {title}}) => (
-            <Text style={styles.sessionHeader}>{title}</Text>
+            <Text style={styles.sessionHeader}>
+              {moment(`${title}`).format('h:mm A')}
+            </Text>
           )}
           keyExtractor={(item, index) => item.id + ''}
         />
