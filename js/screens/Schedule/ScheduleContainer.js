@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {View} from 'react-native';
 import Schedule from './Schedule';
 import gql from 'graphql-tag';
 import {Query} from 'react-apollo';
-import {ActivityIndicator, Text} from 'react-native';
+import {Text} from 'react-native';
 import FavesContext from '../../context/FavesContext';
+import Loader from '../../components/Loader';
 
 const ALL_SESSIONS = gql`
   {
@@ -30,7 +30,7 @@ export default class ScheduleContainer extends Component {
     return (
       <Query query={ALL_SESSIONS}>
         {({loading, error, data}) => {
-          if (loading) return <ActivityIndicator />;
+          if (loading) return <Loader />;
           if (error) return <Text>Error...</Text>;
           return (
             <FavesContext.Consumer>

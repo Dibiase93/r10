@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {View, ActivityIndicator, Text} from 'react-native';
+import {ActivityIndicator, Text} from 'react-native';
 import Faves from './Faves';
 import gql from 'graphql-tag';
 import {Query} from 'react-apollo';
 import FavesContext from '../../context/FavesContext';
+import Loader from '../../components/Loader';
 
 const ALL_SESSIONS = gql`
   {
@@ -29,7 +30,7 @@ export default class FavesContainer extends Component {
       <Query query={ALL_SESSIONS}>
         {({loading, error, data}) => {
           console.log(data.allSessions);
-          if (loading) return <ActivityIndicator />;
+          if (loading) return <Loader />;
           if (error) return <Text>Error...</Text>;
 
           return (

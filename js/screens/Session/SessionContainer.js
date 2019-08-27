@@ -4,8 +4,9 @@ import Session from './Session';
 import {withNavigation} from 'react-navigation';
 import gql from 'graphql-tag';
 import {Query} from 'react-apollo';
-import {ActivityIndicator, Text} from 'react-native';
+import {Text} from 'react-native';
 import FavesContext from '../../context/FavesContext';
+import Loader from '../../components/Loader';
 
 const SPEAKER = gql`
   query Speaker($id: ID!) {
@@ -29,7 +30,7 @@ class SessionContainer extends Component {
     return item.speaker ? (
       <Query query={SPEAKER} variables={{id: item.speaker.id}}>
         {({loading, error, data}) => {
-          if (loading) return <ActivityIndicator />;
+          if (loading) return <Loader />;
           if (error) return <Text>Error...</Text>;
 
           return (
