@@ -24,9 +24,9 @@ class SessionContainer extends Component {
     title: 'Session',
   };
   render() {
-    const item = this.props.navigation.getParam('item', {});
+    const item = this.props.navigation.getParam('item');
 
-    return (
+    return item.speaker ? (
       <Query query={SPEAKER} variables={{id: item.speaker.id}}>
         {({loading, error, data}) => {
           if (loading) return <ActivityIndicator />;
@@ -47,6 +47,17 @@ class SessionContainer extends Component {
           );
         }}
       </Query>
+    ) : (
+      <FavesContext.Consumer>
+        {({faveIds, addFaveSession, removeFaveSession}) => (
+          <Session
+            item={item}
+            faveIds={faveIds}
+            addFaveSession={addFaveSession}
+            removeFaveSession={removeFaveSession}
+          />
+        )}
+      </FavesContext.Consumer>
     );
   }
 }
